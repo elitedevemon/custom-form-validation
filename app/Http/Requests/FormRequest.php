@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\NameUpperCase;
+use Closure;
 use Illuminate\Foundation\Http\FormRequest as FormHandleReqeust;
 use Str;
 
@@ -24,7 +26,14 @@ class FormRequest extends FormHandleReqeust
   {
     return [
       // validation rules
-      'name' => 'required|min:4',
+      'name' => [
+        'required',
+        function (string $attribute, mixed $value, Closure $fail) {
+          if (strtoupper($value) !== $value) {
+            $fail(':attribute must be uppercased');
+          }
+        }
+      ],
       'email' => 'required|email',
       'phone' => 'required|numeric',
       'password' => 'required'
@@ -48,7 +57,7 @@ class FormRequest extends FormHandleReqeust
   protected function prepareForValidation()
   {
     $this->merge([
-      'name' => strtoupper($this->name)
+      'name' => strtolower($this->name)
     ]);
   }
 

@@ -17,10 +17,10 @@
       @csrf
       <h1 class="text-center">Form Validation</h1>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <label for="exampleInputName" class="form-label">Name</label>
         <!-- name input -->
         <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
-          id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('name') }}">
+          id="exampleInputName" aria-describedby="namelHelp" value="{{ old('name') }}">
 
         <!-- error section -->
         @error('name')
@@ -28,10 +28,10 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <label for="exampleInputEmail" class="form-label">Email address</label>
         <!-- email input -->
         <input name="email" type="email" class="form-control @error('email') is-invalid @enderror"
-          id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('email') }}">
+          id="exampleInputEmail" aria-describedby="emailHelp" value="{{ old('email') }}">
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
 
         <!-- error section -->
@@ -40,11 +40,11 @@
         @enderror
       </div>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+        <label for="exampleInputPhone" class="form-label">Phone Number</label>
         <!-- phone input -->
         <input name="phone" type="number" class="form-control @error('phone') is-invalid @enderror"
-          id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ old('phone') }}">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          id="exampleInputPhone" aria-describedby="phonelHelp" value="{{ old('phone') }}">
+        <div id="phonelHelp" class="form-text">We'll never share your email with anyone else.</div>
 
         <!-- error section -->
         @error('phone')
